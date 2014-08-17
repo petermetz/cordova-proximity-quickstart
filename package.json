@@ -1,5 +1,5 @@
 {
-  "name": "ionic-project",
+  "name": "cordova-proximity-quickstart",
   "version": "1.0.0",
   "description": "Helps you get going with proximity related problems in Cordova.",
   "dependencies": {
