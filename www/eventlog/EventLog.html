@@ -1,0 +1,21 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <h1 class="title">Event Log</h1>
+</ion-header-bar>
+
+<ion-view ng-controller="EventLogCtrl">
+    <ion-content class="has-header padding">
+
+
+        <ion-scroll zooming="false" direction="y">
+
+            <ion-list>
+                <ion-item ng-repeat="event in events">
+                    <span>{{event}}</span>
+                </ion-item>
+            </ion-list>
+
+        </ion-scroll>
+
+
+    </ion-content>
+</ion-view>
