@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.unarin.cordova.proximity.quickstart" version="4.0.0" xmlns="http://www.w3.org/ns/widgets">
+<widget id="com.unarin.cordova.proximity.quickstart" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
     <name>Cordova Proximity Quickstart</name>
     <description>
         An Ionic Framework and Cordova project demonstrating proximity tasks.
