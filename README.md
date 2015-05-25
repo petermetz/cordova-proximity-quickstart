@@ -1,4 +1,4 @@
-Cordova Proximity Quickstart
+Cordova Proximity Quick Start
 =====================
 
 A starting project for the [Cordova Proximity Plugin](https://github.com/petermetz/cordova-plugin-ibeacon).
@@ -30,3 +30,7 @@ After a clean checkout, make sure to add one or all of the supported platforms a
     # Opens the project in XCode, where you can run it
     open platforms/ios/Cordova\ Proximity\ Quickstart.xcodeproj
     
+### Development
+
+After making a change to the Javascript/SCSS code, execute ```gulp default ; cordova prepare``` in order to compile your styles and copy your changes into the 
+platform directories. This is necessary before you'll be able to see the changes on a device.
