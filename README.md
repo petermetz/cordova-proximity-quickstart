@@ -19,7 +19,7 @@ After a clean checkout, make sure to add one or all of the supported platforms a
     npm install
     
     # Running a gulp task which will run bower
-    gulp install
+    node ./node_modules/gulp/bin/gulp.js install
     
     # Adds iOS as a platform to your project
     cordova platform add ios 
