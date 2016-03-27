@@ -1,6 +1,6 @@
 angular.module('com.unarin.cordova.proximity.quickstart.monitoring')
 
-	.controller('MonitoringCtrl', ['$log', '$scope', '$window', '$localForage', function ($log, $scope, $window, $localForage) {
+	.controller('MonitoringCtrl', ['$log', '$scope', '$window', '$localForage', 'proximityManager', function ($log, $scope, $window, $localForage, proximityManager) {
 
 		window.$monitoringScope = $scope;
 		$log.debug('MonitoringCtrl is loaded.');
@@ -14,20 +14,10 @@ angular.module('com.unarin.cordova.proximity.quickstart.monitoring')
 
 		$scope.startMonitoring = function () {
 			$log.debug('startMonitoring()');
-
-			var beaconRegion = cordova.plugins.locationManager.Regions.fromJson($scope.region);
-			$log.debug('Parsed BeaconRegion object:', JSON.stringify(beaconRegion, null, '\t'));
-
-			$window.cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-				.fail($log.error)
-				.done();
-
-
+			proximityManager.addMonitoredRegion($scope.region);
 		};
 
-		var delegate = new cordova.plugins.locationManager.Delegate();
-
-		delegate.didDetermineStateForRegion = function (pluginResult) {
+		proximityManager.onDidDetermineStateForRegion(function handleDidDetermineStateForRegion(pluginResult) {
 
 			pluginResult.id = new Date().getTime();
 			pluginResult.timestamp = new Date();
@@ -45,20 +35,13 @@ angular.module('com.unarin.cordova.proximity.quickstart.monitoring')
 
 					$scope.$broadcast('updated_monitoring_events');
 				});
-		};
+		});
 
-		delegate.didStartMonitoringForRegion = function (pluginResult) {
+		proximityManager.onDidStartMonitoringForRegion(function (pluginResult) {
 			$log.debug('didStartMonitoringForRegion:', pluginResult);
 			$scope.updateRangedRegions();
-		};
-
-
-		//
-		// Init
-		//
-		$window.cordova.plugins.locationManager.setDelegate(delegate);
+		});
 
 		$scope.region = {};
-
 		$scope.updateRangedRegions();
 	}]);

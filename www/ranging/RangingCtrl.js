@@ -1,6 +1,6 @@
 angular.module('com.unarin.cordova.proximity.quickstart.ranging')
 
-	.controller('RangingCtrl', ['$log', '$rootScope', '$scope', '$window', '$localForage', function ($log, $rootScope, $scope, $window, $localForage) {
+	.controller('RangingCtrl', ['$log', '$rootScope', '$scope', '$window', '$localForage', 'proximityManager', function ($log, $rootScope, $scope, $window, $localForage, proximityManager) {
 
 		$log.debug('Loaded RangingCtrl successfully.');
 
@@ -13,20 +13,10 @@ angular.module('com.unarin.cordova.proximity.quickstart.ranging')
 
 		$scope.startRanging = function () {
 			$log.debug('startRanging()');
-
-			var beaconRegion = cordova.plugins.locationManager.Regions.fromJson($scope.region);
-			$log.debug('Parsed BeaconRegion object:', JSON.stringify(beaconRegion, null, '\t'));
-
-			$window.cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
-				.fail($log.error)
-				.done();
-
-
+			proximityManager.addRangedRegion($scope.region);
 		};
 
-		var delegate = new cordova.plugins.locationManager.Delegate();
-
-		delegate.didRangeBeaconsInRegion = function (pluginResult) {
+		proximityManager.onDidRangeBeaconsInRegion(function (pluginResult) {
 
 			$log.debug('didRangeBeaconsInRegion()', pluginResult);
 			pluginResult.id = new Date().getTime();
@@ -47,14 +37,7 @@ angular.module('com.unarin.cordova.proximity.quickstart.ranging')
 				}).then(function () {
 					$rootScope.$broadcast('updated_ranging_events');
 				});
-		};
-
-
-		//
-		// Init
-		//
-		$window.cordova.plugins.locationManager.requestAlwaysAuthorization();
-		$window.cordova.plugins.locationManager.setDelegate(delegate);
+		});
 
 		$scope.region = {};
 

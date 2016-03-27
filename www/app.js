@@ -1,5 +1,6 @@
 angular.module('com.unarin.cordova.proximity.quickstart', [
 	'ionic',
+	'com.unarin.cordova.proximity.quickstart.proximity-manager',
 	'com.unarin.cordova.proximity.quickstart.monitoring',
 	'com.unarin.cordova.proximity.quickstart.eventlog',
 	'com.unarin.cordova.proximity.quickstart.ranging'
@@ -9,7 +10,7 @@ angular.module('com.unarin.cordova.proximity.quickstart', [
 
 	$urlRouterProvider.otherwise('/eventlog');
 
-}).run(function () {
+}).run(function ($log, $timeout, proximityManager) {
 
 	console.debug('Running com.unarin.cordova.proximity.quickstart');
 
@@ -21,6 +22,20 @@ angular.module('com.unarin.cordova.proximity.quickstart', [
 		// remove the status bar on iOS or change it to use white instead of dark colors.
 		StatusBar.styleDefault();
 	}
+
+	$timeout(function () {
+		
+        $log.info('Starting proximity manager ...');
+		
+		window.proximityManager = proximityManager;
+        
+		proximityManager.start().then(function (proximityStatusReport) {
+			$log.info('Proximity manager started successfully. Status report: ', proximityStatusReport);
+		}).catch(function (anError) {
+			$log.warn('Proximity manager did not start: ', anError);
+		});
+		
+	}, 250);
 
 });
 

@@ -1,6 +1,6 @@
 {
   "name": "cordova-proximity-quickstart",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Helps you get going with proximity related problems in Cordova.",
   "dependencies": {
     "gulp": "3.9.1",
