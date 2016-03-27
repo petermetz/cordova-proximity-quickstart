@@ -300,7 +300,7 @@ angular.module('com.unarin.cordova.proximity.quickstart.proximity-manager', [
                 $window.cordova.plugins.locationManager.setDelegate(delegate);
                 $window.cordova.plugins.locationManager.requestAlwaysAuthorization();
 
-                return self.getMonitoredRegions().then(function (theMonitoredRegions) {
+                self.getMonitoredRegions().then(function (theMonitoredRegions) {
 
                     theMonitoredRegions.forEach(function (aBeaconRegionJson) {
 
@@ -313,7 +313,7 @@ angular.module('com.unarin.cordova.proximity.quickstart.proximity-manager', [
                             .done();
                     });
 
-                    return self.getRangedRegions().then(function onRangedRegionsRetrievedOk(theRangedRegions) {
+                    self.getRangedRegions().then(function onRangedRegionsRetrievedOk(theRangedRegions) {
 
                         theRangedRegions.forEach(function (aBeaconRegionJson) {
 
