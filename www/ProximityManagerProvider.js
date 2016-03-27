@@ -327,7 +327,7 @@ angular.module('com.unarin.cordova.proximity.quickstart.proximity-manager', [
 
                         });
 
-                        $log.info('Finished boostrapping the monitoring/ranging.', theMonitoredRegions, theRangedRegions);
+                        $log.info('Finished bootstrapping the monitoring/ranging.', theMonitoredRegions, theRangedRegions);
 
                         deferred.resolve({
                             theMonitoredRegions: theMonitoredRegions,
