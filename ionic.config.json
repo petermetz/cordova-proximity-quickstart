@@ -1,0 +1,8 @@
+{
+  "name": "cordova-proximity-quickstart",
+  "app_id": "com.unarin.oss.mobile.CordovaProximityQuickstart",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
