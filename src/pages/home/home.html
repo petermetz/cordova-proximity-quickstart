@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Cordova Proximity Quickstart</h3>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>UUID</ion-label>
+      <ion-textarea type="text" [(ngModel)]="uuid"></ion-textarea>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button type="button" (click)="onStartClicked()" block>Start</button>
+
+</ion-content>
