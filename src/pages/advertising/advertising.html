@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Advertising</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Cordova Proximity Quickstart</h3>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>UUID</ion-label>
+      <ion-textarea type="text" [(ngModel)]="uuid"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Major</ion-label>
+      <ion-textarea type="number" [(ngModel)]="major"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Minor</ion-label>
+      <ion-textarea type="number" [(ngModel)]="minor"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Advertising</ion-label>
+      <ion-label *ngIf="isAdvertisingAvailable === true" color="primary">Supported</ion-label>
+      <ion-label *ngIf="isAdvertisingAvailable === false" color="danger">Not Supported</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button type="button" (click)="onAdvertiseClicked()" block>Start Advertising</button>
+
+</ion-content>
