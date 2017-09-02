@@ -26,6 +26,7 @@
         "@ionic-native/status-bar": "3.12.1",
         "@ionic/storage": "2.0.1",
         "cordova-android": "6.2.3",
+        "cordova-ios": "4.4.0",
         "cordova-plugin-console": "1.0.5",
         "cordova-plugin-device": "1.1.4",
         "cordova-plugin-ibeacon": "^3.4.0",
@@ -56,7 +57,8 @@
             "com.unarin.cordova.beacon": {}
         },
         "platforms": [
-            "android"
+            "android",
+            "ios"
         ]
     }
 }
