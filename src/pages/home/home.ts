@@ -11,6 +11,14 @@ export class HomePage {
   private uuid: string = '00000000-0000-0000-0000-000000000000';
 
   constructor(private readonly ibeacon: IBeacon, private readonly platform: Platform) {
+    this.enableDebugLogs();
+  }
+
+  public enableDebugLogs(): void {
+    this.platform.ready().then(async () => {
+      this.ibeacon.enableDebugLogs();
+      this.ibeacon.enableDebugNotifications();
+    });
   }
 
   public onStartClicked(): void {
