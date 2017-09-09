@@ -16,6 +16,14 @@ export class AdvertisingPage {
 
   constructor(private readonly ibeacon: IBeacon, private readonly platform: Platform) {
     this.fetchIsAdvertisingAvailable();
+    this.enableDebugLogs();
+  }
+
+  public enableDebugLogs(): void {
+    this.platform.ready().then(async () => {
+      this.ibeacon.enableDebugLogs();
+      this.ibeacon.enableDebugNotifications();
+    });
   }
 
   public fetchIsAdvertisingAvailable(): void {
