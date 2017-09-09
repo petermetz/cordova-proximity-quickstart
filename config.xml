@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.unarin.oss.mobile.CordovaProximityQuickstart" version="2.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.unarin.oss.mobile.CordovaProximityQuickstart" version="2.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Proximity</name>
     <description>A starting project for https://github.com/petermetz/cordova-plugin-ibeacon</description>
     <author email="peter.metz@unarin.com" href="https://github.com/petermetz">Peter (Somogyvari) Metz</author>
