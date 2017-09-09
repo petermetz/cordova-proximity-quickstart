@@ -39,6 +39,19 @@ export class AdvertisingPage {
     });
   }
 
+  public onStopAdvertiseClicked(): void {
+    this.platform.ready().then(() => {
+      const beaconRegion = this.ibeacon.BeaconRegion('nullBeaconRegion', this.uuid, this.major, this.minor);
+      this.ibeacon.stopAdvertising(beaconRegion)
+        .then(() => {
+          console.debug(`AdvertisingPage::onStopAdvertiseClicked::SUCCESS=>`);
+        })
+        .catch((reason: any) => {
+          console.debug(`AdvertisingPage::onStopAdvertiseClicked::FAIL::reason=>`, reason);
+        });
+    });
+  }
+
   public startBleAdvertising(): void {
 
     // Request permission to use location on iOS

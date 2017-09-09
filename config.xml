@@ -83,7 +83,7 @@
     <plugin name="com.unarin.cordova.beacon" />
     <plugin name="cordova-plugin-console" spec="1.0.5" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />
-    <plugin name="cordova-plugin-ibeacon" spec="3.5.1" />
+    <plugin name="cordova-plugin-ibeacon" spec="3.5.2" />
     <plugin name="cordova-plugin-splashscreen" spec="4.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="2.2.2" />
     <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
